@@ -3,7 +3,7 @@ import random
 
 
 tim = Turtle()
-tim.shape("turtle")
+tim.shape("triangle")
 tim.color("red")
 tim.pencolor("black")
 # for _ in range(4):  # Loop four times
@@ -39,6 +39,7 @@ tim.pencolor("black")
 #         tim.forward(100)
 #         tim.left(90)
 
+
 def shape(num_sides):
     angle = 360 / num_sides
     for _ in range(num_sides):
@@ -61,13 +62,22 @@ def get_random_color():
 
 direction = [0, 90, 180, 270]
 
-tim.pensize(6)
-for i in range(50):
-    tim.pencolor(get_random_color())
-    tim.forward(30)
-    tim.setheading(random.choice(direction))
+tim.speed("fastest")
+# for i in range(50):
+#     tim.pencolor(get_random_color())
+#     tim.forward(30)
+#     tim.setheading(random.choice(direction))
 
 
+def draw_spirograph(size_of_gab):
+    for i in range(int(360/size_of_gab)):
+        tim.color(get_random_color())
+        tim.circle(100)
+        current_heading = tim.heading()
+        tim.setheading(current_heading + size_of_gab)
+
+
+draw_spirograph(5)
 
 
 
